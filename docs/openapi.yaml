@@ -1,0 +1,31 @@
+openapi: '3.0.3'
+info:
+  title: My bff service
+  version: "0.0.1"
+servers:
+  - description: Remote
+    url: "/bff/"
+  - description: Local
+    url: "/"
+paths:
+
+  /test:
+    get:
+      responses:
+        200:
+          description: asdas
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CombinedResponse"
+
+components:
+  schemas:
+    CombinedResponse:
+      type: object
+      properties:
+        service1: 
+          $ref: './external-backend-service1.yaml#/components/schemas/A'
+        service2: 
+          $ref: './external-backend-service2.yaml#/components/schemas/A'
+

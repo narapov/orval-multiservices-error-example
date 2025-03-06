@@ -1,0 +1,28 @@
+openapi: '3.0.3'
+info:
+  title: External backend service 2
+  version: "0.0.1"
+servers:
+  - description: Remote
+    url: "/external-backend-service2/"
+  - description: Local
+    url: "/"
+paths:
+  /test:
+    get:
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/A"
+
+components:
+  schemas:
+    A:
+      type: object
+      properties:
+        service2Prop: 
+          type: string
+
